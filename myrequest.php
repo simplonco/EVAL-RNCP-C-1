@@ -31,6 +31,7 @@ $db = new PDO('mysql:host=localhost;dbname=dbmagic;charset=utf8mb4', 'root', 'ro
   <?php require 'navbar.inc.php'; ?>
     <div class="container" id="con2">
         <h2 class="form-request-heading">Mes souhaits</h2>
+        <p align="right"><a class="btn btn-warning" href="generate_pdf.php" target="_blank">Générer PDF</a></p>
         <hr />
         <div class="alert alert-info">
             <table class="table table-striped table-bordered">

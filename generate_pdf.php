@@ -2,7 +2,7 @@
 require_once("dbcontroller.php");
 $db_handle = new DBController();
 
-$result = $db_handle->runQuery("SELECT tbl_request.date AS date, tbl_request.validate, tbl_users.userName AS userN FROM tbl_request right JOIN tbl_users ON tbl_request.userid = tbl_users.userId ORDER By tbl_request.validate ASC");
+$result = $db_handle->runQuery("SELECT tbl_request.date AS date, tbl_request.message FROM tbl_request right JOIN tbl_users ON tbl_request.userid = tbl_users.userId ORDER By tbl_request.date DESC");
 
 require('fpdf.php');
 
@@ -20,7 +20,7 @@ function Header()
     $this->Cell(57);
 		$tDate=$tDate = date("F j, Y, G:i");
     // Date
-    $this->Cell(0, 10, utf8_decode('Magique rapport toutes les demandes: ').$tDate, 0, false, 'C', 0, '', 0, false, 'T', 'M');
+    $this->Cell(0, 10, utf8_decode('Magique rapport toutes les souhaits: ').$tDate, 0, false, 'C', 0, '', 0, false, 'T', 'M');
     // Line break
     $this->Ln(10);
 }
@@ -42,18 +42,18 @@ $pdf = new PDF();
 $pdf->AliasNbPages();
 $pdf->AddPage();
 
-$pdf->SetFont('Arial','B',12);
-$pdf->Cell(60,12,'Date', 1);
-$pdf->Cell(60,12,utf8_decode('Réponse'), 1);
-$pdf->Cell(60,12,'Name', 1);
+
+// $pdf->SetFont('Arial','B',12);
+// $pdf->Cell(30,12,'Date', 1);
+// $pdf->Cell(180,12,utf8_decode('Mes souaits'), 1);
+
 foreach($result as $row) {
 	if (!empty($row['date'])){
 		$pdf->SetFont('Arial','',12);
 		$pdf->Ln();
 		foreach($row as $column)
-			$pdf->Cell(60,12,$column,1);
+			$pdf->MultiCell(190,12,$column,0,1);
 	}
-
 }
 $pdf->Output();
 ?>
