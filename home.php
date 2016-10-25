@@ -12,7 +12,6 @@ $stmt = $user_home->runQuery('SELECT * FROM tbl_users WHERE userID=:uid');
 $stmt->execute(array(':uid' => $_SESSION['userSession']));
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-
 if (isset($_POST['btn-request'])) {
     $date = trim($_POST['txtdate']);
     $message = trim($_POST['txtmessage']);
@@ -88,16 +87,44 @@ if (isset($_POST['btn-request'])) {
                 echo $msg;
             }
             ?>
-            <form class="form-request" method="post">
-                <h3 class="form-request-heading">Ajouter un souhait</h3>
-                <hr />
-                <h5 class="form-label">Choisissez la date pour votre souhait:</h5>
-                <input type="text" class="input-block-level" id="datepicker" placeholder="Choisissez une date" name="txtdate" required />
-                <h5 class="form-label">Note votre souhait:</h5>
-                <input type="text" class="input-block-level" placeholder="Entrez votre souheit" name="txtmessage" required />
-                <hr />
-                <button class="btn btn-large btn-warning" type="submit" name="btn-request">Envoyer</button>
-            </form>
+            <div>
+              <form class="form-request" method="post">
+                  <h3 class="form-request-heading">Ajouter un souhait</h3>
+                  <hr />
+                  <h5 class="form-label">Choisissez la date pour votre souhait:</h5>
+                  <input type="text" class="input-block-level" id="datepicker" placeholder="Choisissez une date" name="txtdate" required />
+                  <h5 class="form-label">Note votre souhait:</h5>
+                  <input type="text" class="input-block-level" placeholder="Entrez votre souheit" name="txtmessage" required />
+                  <hr />
+                  <button class="btn btn-large btn-warning" type="submit" name="btn-request">Envoyer</button>
+              </form>
+            </div>
+            <h4 class="form-request-heading">les personnes qui utilisent l'application, font souhait comme vous, par exemple</h4>
+            <div class="alert alert-info">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                    <?php
+                      $dbr = new PDO('mysql:host=localhost;dbname=dbmagic;charset=utf8mb4', 'root', 'root');
+                      $stmtr = $dbr->query("SELECT date, message FROM tbl_request ORDER BY RAND( ) LIMIT 4");
+                      while ($requestr = $stmtr->fetch()) {
+                          echo '<tr>';
+                          echo '<td width=100>'.$requestr['date'].'</td>';
+
+                          echo '<td>'.$requestr['message'].'</td>';
+                          echo '</tr>';
+                      }
+                    ?>
+                    </tbody>
+                </table>
+            </div>
+
         </div>
         <!-- /container -->
 
