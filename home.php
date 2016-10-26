@@ -29,7 +29,7 @@ if (isset($_POST['btn-request'])) {
     $stmt->execute(array(':weekNum' => $WeekNumber));
     $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($stmt->rowCount() > 6) {
+    if ($stmt->rowCount() > 5) {
         $msg = "
                 <div class='alert alert-error'>
                 <button class='close' data-dismiss='alert'>&times;</button>

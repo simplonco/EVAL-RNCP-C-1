@@ -67,7 +67,7 @@ if (isset($_GET['id']) && isset($_GET['code'])) {
           <a class="brand" id="app-name" href="#"><img src="./images/Magic-Lamp.png" alt="Magique Souhaits"> Mes Souhaits </a>
       </div>
   </div>
-    <div class="container">
+    <div class="container" id="con2">
         <div class='alert alert-success'>
             <strong>Bonjour !</strong>
             <?php echo $rows['userName'] ?> vous êtes ici pour réinitialiser votre mot de passe oublié.
