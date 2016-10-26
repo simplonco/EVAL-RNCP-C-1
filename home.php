@@ -106,6 +106,7 @@ if (isset($_POST['btn-request'])) {
                         <tr>
                             <th>Date</th>
                             <th>Description</th>
+                            <th>Tweet</th>
                         </tr>
                     </thead>
 
@@ -118,16 +119,18 @@ if (isset($_POST['btn-request'])) {
                           echo '<td width=100>'.$requestr['date'].'</td>';
 
                           echo '<td>'.$requestr['message'].'</td>';
+                          echo '<td> <a href="https://twitter.com/share" data-url=" " class="twitter-share-button" data-show-count="false" data-text="Mon Souhait: '.$requestr['message'].'">Tweet</a> </td>';
                           echo '</tr>';
                       }
                     ?>
+
                     </tbody>
                 </table>
             </div>
 
         </div>
         <!-- /container -->
-
+        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
         <?php require 'footer.inc.php'; ?>
         <?php require 'script.inc.php'; ?>
 </body>
