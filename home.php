@@ -104,9 +104,9 @@ if (isset($_POST['btn-request'])) {
                 <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th>Date</th>
-                            <th>Description</th>
-                            <th>Tweet</th>
+                            <th style="text-align: center">Date</th>
+                            <th style="text-align: center">Description</th>
+                            <th style="text-align: center">Tweet</th>
                         </tr>
                     </thead>
 
@@ -116,10 +116,10 @@ if (isset($_POST['btn-request'])) {
                       $stmtr = $dbr->query("SELECT date, message FROM tbl_request ORDER BY RAND( ) LIMIT 5");
                       while ($requestr = $stmtr->fetch()) {
                           echo '<tr>';
-                          echo '<td width=100>'.$requestr['date'].'</td>';
+                          echo '<td width=85>'.$requestr['date'].'</td>';
 
                           echo '<td>'.$requestr['message'].'</td>';
-                          echo '<td> <a href="https://twitter.com/share" data-url=" " class="twitter-share-button" data-text="Mon Souhait: '.$requestr['message'].'">Tweet</a> </td>';
+                          echo '<td width=65> <a href="https://twitter.com/share" data-url=" " class="twitter-share-button" data-text="Mon Souhait: '.$requestr['message'].'">Tweet</a> </td>';
                           echo '</tr>';
                       }
                     ?>

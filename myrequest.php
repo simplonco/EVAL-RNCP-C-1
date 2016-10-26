@@ -37,10 +37,10 @@ $db = new PDO('mysql:host=localhost;dbname=dbmagic;charset=utf8mb4', 'root', 'ro
             <table class="table table-striped table-bordered">
                 <thead>
                     <tr>
-                        <th>Date</th>
-                        <th>Description</th>
-                        <th>Tweet</th>
-                        <th>Actions</th>
+                        <th style="text-align: center">Date</th>
+                        <th style="text-align: center">Description</th>
+                        <th style="text-align: center">Tweet</th>
+                        <th style="text-align: center">Actions</th>
                     </tr>
                 </thead>
 
@@ -55,10 +55,10 @@ $db = new PDO('mysql:host=localhost;dbname=dbmagic;charset=utf8mb4', 'root', 'ro
                   $stmt = $db->query('SELECT * FROM tbl_request WHERE userid = '.$userid.' ORDER BY id DESC');
                   while ($request = $stmt->fetch()) {
                       echo '<tr>';
-                      echo '<td width=100>'.$request['date'].'</td>';
+                      echo '<td width=85>'.$request['date'].'</td>';
                       echo '<td>'.$request['message'].'</td>';
-                      echo '<td> <a href="https://twitter.com/share" data-url=" " class="twitter-share-button" data-text="Mon Souhait: '.$request['message'].'">Tweet</a> </td>';
-                      echo '<td width=310>';
+                      echo '<td width=65> <a href="https://twitter.com/share" data-url=" " class="twitter-share-button" data-text="Mon Souhait: '.$request['message'].'">Tweet</a> </td>';
+                      echo '<td width=305>';
                       if ($request['validate'] == "Attendre") {
                           echo '<a class="btn btn-warning" id="btn-admin" href="verifyreq.php?id='.base64_encode($request['id']).'&code='.$request['tokenCode'].'&status='.$statusY.'"><span class="glyphicon glyphicon-pencil"></span> Se réaliser </a>';
                           echo ' ';
