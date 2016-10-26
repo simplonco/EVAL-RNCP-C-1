@@ -119,7 +119,7 @@ if (isset($_POST['btn-request'])) {
                           echo '<td width=100>'.$requestr['date'].'</td>';
 
                           echo '<td>'.$requestr['message'].'</td>';
-                          echo '<td> <a href="https://twitter.com/share" data-url=" " class="twitter-share-button" data-show-count="false" data-text="Mon Souhait: '.$requestr['message'].'">Tweet</a> </td>';
+                          echo '<td> <a href="https://twitter.com/share" data-url=" " class="twitter-share-button" data-text="Mon Souhait: '.$requestr['message'].'">Tweet</a> </td>';
                           echo '</tr>';
                       }
                     ?>

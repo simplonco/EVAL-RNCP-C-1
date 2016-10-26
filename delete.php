@@ -49,7 +49,7 @@
           <div class="col-sm-12">
             <h2 class="form-request-heading">Mes souhaits</h2>
             <hr />
-            <h3><strong>Supprimer un souhait</strong></h3>
+            <h3 class="form-request-heading"><strong>Supprimer un souhait !!</strong></h3>
             <form class="form" action="delete.php" role="form" method="post">
                 <input type="hidden" name="id" value="<?php echo $id;?>"/>
                 <p class="alert alert-warning">Etes vous sur de vouloir supprimer ?</p>

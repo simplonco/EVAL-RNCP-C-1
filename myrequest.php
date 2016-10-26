@@ -57,7 +57,7 @@ $db = new PDO('mysql:host=localhost;dbname=dbmagic;charset=utf8mb4', 'root', 'ro
                       echo '<tr>';
                       echo '<td width=100>'.$request['date'].'</td>';
                       echo '<td>'.$request['message'].'</td>';
-                      echo '<td> <a href="https://twitter.com/share" data-url=" " class="twitter-share-button" data-show-count="false" data-text="Mon Souhait: '.$request['message'].'">Tweet</a> </td>';
+                      echo '<td> <a href="https://twitter.com/share" data-url=" " class="twitter-share-button" data-text="Mon Souhait: '.$request['message'].'">Tweet</a> </td>';
                       echo '<td width=310>';
                       if ($request['validate'] == "Attendre") {
                           echo '<a class="btn btn-warning" id="btn-admin" href="verifyreq.php?id='.base64_encode($request['id']).'&code='.$request['tokenCode'].'&status='.$statusY.'"><span class="glyphicon glyphicon-pencil"></span> Se réaliser </a>';
