@@ -26,6 +26,9 @@
                     <li class="active">
                       <a href="http://simplon.co/" target="_blank">SimplonCo</a>
                     </li>
+                    <li>
+                      <a href="http://www.rncp.cncp.gouv.fr/" target="_blank">RNCP</a>
+                    </li>
                 </ul>
             </div>
             <!--/.nav-collapse -->

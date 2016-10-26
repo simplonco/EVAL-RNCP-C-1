@@ -9,7 +9,7 @@ if (empty($_GET['id'])) {
 if (isset($_GET['id'])) {
     $uid = $_GET['id'];
 
-    $result = $db_handle->runQuery("SELECT tbl_request.date AS date, tbl_request.message FROM tbl_request right JOIN tbl_users ON tbl_request.userid = $uid WHERE tbl_users.userId = $uid ORDER By tbl_request.date DESC ");
+    $result = $db_handle->runQuery("SELECT tbl_request.date AS date, tbl_request.message FROM tbl_request right JOIN tbl_users ON tbl_request.userid = $uid WHERE tbl_users.userId = $uid ");
 
     require('fpdf.php');
     class PDF extends FPDF

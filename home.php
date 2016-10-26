@@ -112,7 +112,7 @@ if (isset($_POST['btn-request'])) {
                     <tbody>
                     <?php
                       $dbr = new PDO('mysql:host=localhost;dbname=dbmagic;charset=utf8mb4', 'root', 'root');
-                      $stmtr = $dbr->query("SELECT date, message FROM tbl_request ORDER BY RAND( ) LIMIT 4");
+                      $stmtr = $dbr->query("SELECT date, message FROM tbl_request ORDER BY RAND( ) LIMIT 5");
                       while ($requestr = $stmtr->fetch()) {
                           echo '<tr>';
                           echo '<td width=100>'.$requestr['date'].'</td>';
