@@ -66,6 +66,7 @@ if (isset($_POST['btn-request'])) {
                     Nous tenons à votre rêve devienne réalité très bientôt, bonne fin de journée.
                 </div>
                 ";
+                header('refresh:2;home.php');
     }
 }
 ?>
@@ -96,7 +97,7 @@ if (isset($_POST['btn-request'])) {
                   <h5 class="form-label">Note votre souhait:</h5>
                   <input type="text" class="input-block-level" placeholder="Entrez votre souheit" name="txtmessage" required />
                   <hr />
-                  <button class="btn btn-large btn-warning" type="submit" name="btn-request">Envoyer</button>
+                  <button class="btn btn-large btn-warning" type="submit" name="btn-request">Enregistrer</button>
               </form>
             </div>
             <h4 class="form-request-heading">les personnes qui utilisent l'application, font souhait comme vous, par exemple</h4>
