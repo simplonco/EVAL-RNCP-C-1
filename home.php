@@ -94,13 +94,13 @@ if (isset($_POST['btn-request'])) {
                   <hr />
                   <h5 class="form-label">Choisissez la date pour votre souhait:</h5>
                   <input type="text" class="input-block-level" id="datepicker" placeholder="Choisissez une date" name="txtdate" required />
-                  <h5 class="form-label">Note votre souhait:</h5>
-                  <input type="text" class="input-block-level" placeholder="Entrez votre souheit" name="txtmessage" required />
+                  <h5 class="form-label">Indiquez votre souhait:</h5>
+                  <input type="text" class="input-block-level" placeholder="Entrez votre souhait" name="txtmessage" required />
                   <hr />
                   <button class="btn btn-large btn-warning" type="submit" name="btn-request">Enregistrer</button>
               </form>
             </div>
-            <h4 class="form-request-heading">les personnes qui utilisent l'application, font souhait comme vous, par exemple</h4>
+            <h4 class="form-request-heading">Les personnes qui, comme vous, utilisent l'application, expriment un ou des souhaits. Exemples:</h4>
             <div class="alert alert-info">
                 <table class="table table-striped table-bordered">
                     <thead>
