@@ -14,7 +14,17 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 $userid = $row['userID'];
 $username = $row['userName'];
 
-$db = new PDO('mysql:host=localhost;dbname=dbmagic;charset=utf8mb4', 'root', 'root');
+try
+  {
+  // On se connecte à MySQL
+  $db = new PDO('mysql:host=localhost;dbname=dbmagic', 'root', 'root');
+  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  }
+  catch(Exception $e)
+  {
+  // En cas d'erreur, on affiche un message et on arrête tout
+  die('Erreur : '.$e->getMessage());
+  }
 ?>
 
 <!DOCTYPE html>

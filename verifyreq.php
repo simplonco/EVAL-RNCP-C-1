@@ -14,9 +14,18 @@ if (isset($_GET['id']) && isset($_GET['code']) && isset($_GET['status'])) {
     $statusW = "Attendre";
 
     // $close = 'JavaScript:window.close()';
-
-    $db = new PDO('mysql:host=localhost;dbname=dbmagic;charset=utf8mb4', 'root', 'root');
-
+    try
+      {
+      // On se connecte à MySQL
+      $db = new PDO('mysql:host=localhost;dbname=dbmagic', 'root', 'root');
+      $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      }
+      catch(Exception $e)
+      {
+      // En cas d'erreur, on affiche un message et on arrête tout
+      die('Erreur : '.$e->getMessage());
+      }
+    
     $stmt = $db->prepare('SELECT id, validate, userid, message, date FROM tbl_request WHERE id=:id AND tokenCode=:code LIMIT 1');
     $stmt->execute(array(':id' => $id, ':code' => $code));
     $ro = $stmt->fetch(PDO::FETCH_ASSOC);

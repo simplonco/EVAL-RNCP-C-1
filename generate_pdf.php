@@ -49,7 +49,7 @@ if (isset($_GET['id'])) {
     		$pdf->SetFont('Arial','',12);
     		$pdf->Ln();
     		foreach($row as $column)
-    			$pdf->MultiCell(190,12,$column,0,1);
+    			$pdf->MultiCell(190,12,utf8_decode($column),0,1);
     	}
     }
   }

@@ -22,9 +22,18 @@ if (isset($_POST['btn-request'])) {
 
     $userid = $row['userID'];
     $username = $row['userName'];
-    $db = new PDO('mysql:host=localhost;dbname=dbmagic;charset=utf8mb4', 'root', 'root');
-
-
+    try
+      {
+      // On se connecte à MySQL
+      $db = new PDO('mysql:host=localhost;dbname=dbmagic', 'root', 'root');
+      $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      }
+      catch(Exception $e)
+      {
+      // En cas d'erreur, on affiche un message et on arrête tout
+      die('Erreur : '.$e->getMessage());
+      }
+    
     $stmt = $db->prepare('SELECT * FROM tbl_request WHERE weekNum=:weekNum');
     $stmt->execute(array(':weekNum' => $WeekNumber));
     $stmt->fetch(PDO::FETCH_ASSOC);
@@ -113,7 +122,19 @@ if (isset($_POST['btn-request'])) {
 
                     <tbody>
                     <?php
-                      $dbr = new PDO('mysql:host=localhost;dbname=dbmagic;charset=utf8mb4', 'root', 'root');
+                      try
+                        {
+                        // On se connecte à MySQL
+                        $dbr = new PDO('mysql:host=localhost;dbname=dbmagic', 'root', 'root');
+                        $dbr->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                        }
+                        catch(Exception $e)
+                        {
+                        // En cas d'erreur, on affiche un message et on arrête tout
+                        die('Erreur : '.$e->getMessage());
+                        }
+
+
                       $stmtr = $dbr->query("SELECT date, message FROM tbl_request ORDER BY RAND( ) LIMIT 5");
                       while ($requestr = $stmtr->fetch()) {
                           echo '<tr>';
